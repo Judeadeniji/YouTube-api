@@ -1,0 +1,200 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>API Documentation</title>
+  <link href="https://cdn.jsdelivr.net/npm/tailwindcss@2.2.15/dist/tailwind.min.css" rel="stylesheet">
+  <style>
+    pre {
+      white-space: pre-wrap;
+    }
+  </style>
+</head>
+<body class="bg-gray-100">
+  <header class="bg-white shadow-md fixed top-0 left-0 right-0">
+    <nav class="h-16 mx-auto md:container flex items-center justify-between px-4 py-2 md:px-5">
+      <div class="flex mx-auto justify-between w-full items-center">
+        <div class="mr-4">
+          <a href="#" class="text-black font-bold text-xl">YOU-PI</a>
+        </div>
+        <div class="hidden md:block">
+          <a href="#" class="text-gray-400 hover:font-extrabold hover:text-indigo-500 ml-8">Home</a>
+          <a href="#" class="text-gray-400 hover:font-extrabold hover:text-indigo-500 ml-8">About</a>
+          <a href="#" class="text-gray-400 hover:font-extrabold hover:text-indigo-500 ml-8">Services</a>
+          <a href="#" class="text-gray-400 hover:font-extrabold hover:text-indigo-500 ml-8">Contact</a>
+        </div>
+      <div class="md:hidden self-end">
+         <button type="button"
+        class="px-4 py-2 rounded-md text-indigo-500 bg-white ml-4
+        hover:bg-indigo-100 hover:shadow-md focus:outline-none">Try Out</button>
+        </div>
+      </div>
+      <div class="md:hidden">
+        <button type="button" class="text-gray-400 hover:text-white focus:outline-none">
+          <svg class="h-6 w-6 fill-current" viewBox="0 0 24 24">
+            <path
+              d="M4 6h16M4 12h16M4 18h16"></path>
+          </svg>
+        </button>
+      </div>
+    <div class="hidden md:flex ml-8">
+      <button type="button"
+        class="rounded-md text-white bg-indigo-500 hover:bg-indigo-600
+        w-24 h-10 hover:shadow-md focus:outline-none">Sign
+        In</button>
+      <button type="button"
+        class="rounded-md text-indigo-500 bg-white w-24 h-10 ml-4 hover:bg-indigo-100 hover:shadow-md focus:outline-none">Sign
+        Up</button>
+    </div>
+    </nav>
+  </header>
+
+<div class="md:flex">
+  <aside class="bg-white drop-shadow-md w-64 hidden md:block">
+    <nav class="flex w-52 flex-col py-4 pr-2 space-y-2 fixed left-0 top-14 bottom-0">
+      <a href="#"
+        class="text-gray-700 font-medium py-1 px-2 text-center rounded-r-full hover:bg-indigo-100 hover:text-indigo-500">Search</a>
+      <a href="#"
+        class="text-gray-700 font-medium py-1 px-2 text-center rounded-r-full hover:bg-indigo-100 hover:text-indigo-500">PlaylistItems</a>
+      <a href="#"
+        class="text-gray-700 font-medium py-1 px-2 text-center rounded-r-full hover:bg-indigo-100 hover:text-indigo-500">Playlists</a>
+      <a href="#"
+        class="text-gray-700 font-medium py-1 px-2 text-center rounded-r-full hover:bg-indigo-100 hover:text-indigo-500">VideoCategories</a>
+      <a href="#"
+        class="text-gray-700 font-medium py-1 px-2 text-center rounded-r-full hover:bg-indigo-100 hover:text-indigo-500">Videos</a>
+      <a href="#"
+        class="text-gray-700 font-medium py-1 px-2 text-center rounded-r-full hover:bg-indigo-100 hover:text-indigo-500">Additional Endpoints</a>
+    </nav>
+  </aside>
+  <main class="container mt-14 mx-auto px-4 py-6 bg-gray-50 md:px-7">
+    <section>
+      <h2 class="text-2xl font-bold">Search</h2>
+      <p>Search for videos on YouTube.</p>
+      <h3 class="text-lg font-bold mt-4">Request</h3>
+      <pre class="bg-gray-200 p-4 rounded-md overflow-x-auto">
+GET /search?q={searchQuery}&max={max}&category={category}
+      </pre>
+      <h3 class="text-lg font-bold mt-4">Response</h3>
+      <pre class="bg-gray-200 p-4 rounded-md overflow-x-auto">
+{
+  "results": [...]
+}
+      </pre>
+    </section>
+
+    <section class="mt-8">
+      <h2 class="text-2xl font-bold">PlaylistItems</h2>
+      <p>Get playlist items from YouTube.</p>
+      <h3 class="text-lg font-bold mt-4">Request</h3>
+      <pre class="bg-gray-200 p-4 rounded-md overflow-x-auto">
+GET /playlist-items?playlistId={playlistId}&max={max}&category={category}
+      </pre>
+      <h3 class="text-lg font-bold mt-4">Response</h3>
+      <pre class="bg-gray-200 p-4 rounded-md overflow-x-auto">
+{
+  "playlistItems": [...]
+}
+      </pre>
+    </section>
+
+    <section class="mt-8">
+      <h2 class="text-2xl font-bold">Playlists</h2>
+      <p>Get playlists from YouTube.</p>
+      <h3 class="text-lg font-bold mt-4">Request</h3>
+      <pre class="bg-gray-200 p-4 rounded-md overflow-x-auto">
+GET /playlists?channelId={channelId}&max={max}&category={category}&chart={chart}
+      </pre>
+      <h3 class="text-lg font-bold mt-4">Response</h3>
+      <pre class="bg-gray-200 p-4 rounded-md overflow-x-auto">
+{
+  "playlists": [...]
+}
+      </pre>
+    </section>
+
+    <section class="mt-8">
+      <h2 class="text-2xl font-bold">Subscriptions</h2>
+      <p>Get subscriptions from YouTube.</p>
+      <h3 class="text-lg font-bold mt-4">Request</h3>
+      <pre class="bg-gray-200 p-4 rounded-md overflow-x-auto">
+GET /subscriptions?channelId={channelId}&max={max}
+      </pre>
+      <h3 class="text-lg font-bold mt-4">Response</h3>
+      <pre class="bg-gray-200 p-4 rounded-md overflow-x-auto">
+{
+  "subscriptions": [...]
+}
+      </pre>
+    </section>
+
+    <section class="mt-8">
+      <h2 class="text-2xl font-bold">VideoCategories</h2>
+      <p>Get video categories from YouTube.</p>
+      <h3 class="text-lg font-bold mt-4">Request</h3>
+      <pre class="bg-gray-200 p-4 rounded-md overflow-x-auto">
+GET /video-categories?id={id}& regionCode={regionCode}&max={max}
+      </pre>
+      <h3 class="text-lg font-bold mt-4">Response</h3>
+      <pre class="bg-gray-200 p-4 rounded-md overflow-x-auto">
+{
+  "videoCategories": [...]
+}
+      </pre>
+    </section>
+
+    <section class="mt-8">
+      <h2 class="text-2xl font-bold">Videos</h2>
+      <p>Get videos from YouTube.</p>
+      <h3 class="text-lg font-bold mt-4">Request</h3>
+      <pre class="bg-gray-200 p-4 rounded-md overflow-x-auto">
+GET /videos/?regionCode={regionCode}&max={max}&chart={chart}
+      </pre>
+      <h3 class="text-lg font-bold mt-4">Response</h3>
+      <pre class="bg-gray-200 p-4 rounded-md overflow-x-auto">
+{
+  "videos": [...]
+}
+      </pre>
+    </section>
+
+    <section class="mt-8">
+      <h2 class="text-2xl font-bold">Additional Endpoints</h2>
+      <p>Here are some additional endpoints:</p>
+
+      <h3 class="text-lg font-bold mt-4">Most Popular Videos</h3>
+      <pre class="bg-gray-200 p-4 rounded-md overflow-x-auto">
+GET /most-popular-videos?max={max}&category={category}
+      </pre>
+
+      <h3 class="text-lg font-bold mt-4">Most Viewed Videos</h3>
+      <pre class="bg-gray-200 p-4 rounded-md overflow-x-auto">
+GET /most-viewed-videos?max={max}&publishedBefore={publishedBefore}&publishedAfter={publishedAfter}
+      </pre>
+
+      <h3 class="text-lg font-bold mt-4">Most Popular Videos by Region</h3>
+      <pre class="bg-gray-200 p-4 rounded-md overflow-x-auto">
+GET /most-popular-by-region/?regionCode={regionCode}&max={max}&category={category}
+      </pre>
+
+      <h3 class="text-lg font-bold mt-4">Most Popular Videos by Category</h3>
+      <pre class="bg-gray-200 p-4 rounded-md overflow-x-auto">
+GET /most-popular-by-category?videoCategoryId={videoCategoryId}&max={max}&category={category}
+      </pre>
+
+      <h3 class="text-lg font-bold mt-4">Thumbnails</h3>
+      <pre class="bg-gray-200 p-4 rounded-md overflow-x-auto">
+GET /thumbnails?v={videoId}
+      </pre>
+    </section>
+  </main>
+</div>
+
+  <footer class="bg-gray-200 py-4 mt-8">
+    <div class="container mx-auto px-4">
+      <p class="text-center text-gray-600">API Documentation &copy; 2023</p>
+    </div>
+  </footer>
+</body>
+</html>
+
